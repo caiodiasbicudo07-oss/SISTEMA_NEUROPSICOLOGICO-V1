@@ -14,8 +14,6 @@ Sistema desenvolvido para auxiliar no gerenciamento de avaliações neuropsicol�
 ## Tecnologias
 
 - HTML
-- CSS
-- JavaScript
 
 ## Autor
 
