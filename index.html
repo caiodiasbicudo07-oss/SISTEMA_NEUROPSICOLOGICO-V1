@@ -518,165 +518,150 @@ body{
   .report-out{display:block!important;border:none;padding:0;box-shadow:none}
 }
 
-
-/* Hamburger hidden on desktop */
-.sb-hamburger{ display:none }
 /* ======================== RESPONSIVE ======================== */
 
-/* Tablet (≤900px) — sidebar vira bottom nav */
-@media(max-width:900px){
-  :root{ --sidebar-w:0px }
-  body{
-    display:flex!important;
-    flex-direction:column;
-    grid-template-columns:unset!important;
-    grid-template-rows:unset!important;
-    width:100%;
-    overflow-x:hidden;
-  }
-  .neuro-sidebar{
-    display:none!important;
-    visibility:hidden!important;
-    width:0!important;
-    min-width:0!important;
-    position:fixed!important;
-    left:-9999px!important;
-  }
-  .neuro-sidebar.sb-open{
-    display:flex!important;
-    visibility:visible!important;
-    width:260px!important;
-    left:0!important;
-    top:0!important;
-    bottom:0!important;
-    height:100vh!important;
-    z-index:500!important;
-    position:fixed!important;
-  }
-  .sb-overlay{
-    display:none;
-    position:fixed;inset:0;
-    background:rgba(13,27,42,.55);
-    z-index:499;
-  }
-  .sb-overlay.open{ display:block }
-  .sb-hamburger{
-    display:flex!important;
-    align-items:center;justify-content:center;
-    width:36px;height:36px;
-    background:var(--navy);color:#fff;
-    border:none;border-radius:8px;
-    font-size:1.1rem;cursor:pointer;
-    flex-shrink:0;
-  }
-
-  /* v6-steps: remove grid-column, full width */
-  .v6-steps{
-    grid-column:unset!important;
-    position:sticky;top:0;width:100%;
-    max-width:100%;
-    box-sizing:border-box;
-  }
-  .v6-steps-inner{ padding:10px 14px; gap:7px }
-  .v6-phases{ gap:4px; flex-wrap:wrap }
-  .v6-phase .lbl{ display:none }
-  .v6-phase{ padding:5px 10px }
-  .v6-progress{ display:none }
-
-  /* main: remove grid-column, full width */
-  .main{
-    grid-column:unset!important;
-    width:100%;
-    max-width:100%;
-    padding:16px 14px;
-    box-sizing:border-box;
-  }
-
-  /* header hidden */
-  .header{ display:none!important }
-
-  /* nav footer */
-  .v6-nav{ margin:20px -14px 0 }
-  .v6-nav-inner{ padding:10px 14px }
-
-  /* toast: centralizado sem sidebar */
-  .v6-toast{ left:50%!important }
-
-  /* patient grid */
-  .patient-grid{ grid-template-columns:1fr }
-  .informant-fields{ grid-template-columns:1fr }
-  .color-grid{ grid-template-columns:1fr }
-  .items-grid-3{ grid-template-columns:1fr 1fr }
-  .items-grid-2{ grid-template-columns:1fr }
-
-  /* tables: make inputs fill cell */
-  .input-table input[type=number],
-  .input-table input[type=text]{ width:100%!important;min-width:50px }
-  .input-table{ font-size:.83rem }
-
-  /* results table: horizontal scroll */
-  .results-section{ overflow-x:auto;-webkit-overflow-scrolling:touch }
-  .result-table{ min-width:520px }
-  .test-body{ overflow-x:auto }
-
-  /* cards */
-  .card{ padding:18px 14px }
-
-  /* chip bar */
-  .v6-tests{ padding-bottom:2px }
-  .v6-tchip{ font-size:.58rem; padding:4px 10px }
-
-  /* modal */
-  .modal{ width:96%!important;max-width:96%!important;margin:8px }
-  .val-modal{ width:96%!important;max-width:96%!important;padding:22px 18px }
+/* Hamburger: escondido no desktop */
+.sb-hamburger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 34px; height: 34px;
+  background: var(--navy); color: #fff;
+  border: none; border-radius: 8px;
+  font-size: 1.2rem; cursor: pointer;
+  flex-shrink: 0; margin-right: 2px;
 }
 
-/* Mobile (≤480px) */
-@media(max-width:480px){
-  .v6-steps-inner{ padding:8px 12px }
-  .main{ padding:12px 12px }
-  .v6-nav-inner{ padding:10px 12px }
-  .v6-nav{ margin:16px -12px 0 }
-  .card{ padding:14px 12px }
+/* Overlay escurecido atrás da sidebar no mobile */
+.sb-overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(13,27,42,.6);
+  z-index: 499;
+}
+.sb-overlay.open { display: block; }
 
-  /* Make step title stack vertically */
-  .v6-step-title{ flex-direction:column;align-items:flex-start;gap:8px;margin:14px 0 12px }
-  .v6-step-title h2{ font-size:1.1rem }
+/* ── Tablet + Mobile (≤900px) ─────────────────────────── */
+@media (max-width: 900px) {
+  :root { --sidebar-w: 0px; }
 
-  /* Chips: smaller, hide overflow */
-  .v6-tchip{ font-size:.54rem; padding:4px 8px }
-
-  /* Phases: just numbers */
-  .v6-phase{ padding:5px 8px;font-size:.7rem }
-  .v6-phase-sep{ min-width:4px;max-width:10px }
-
-  /* Tables */
-  .input-table th{ font-size:.52rem;padding:7px 8px }
-  .input-table td{ padding:7px 8px }
-  .result-table{ min-width:480px }
-  .result-table th{ font-size:.52rem;padding:7px 10px }
-  .result-table td{ padding:8px 10px;font-size:.82rem }
-
-  /* Items grids */
-  .items-grid-3{ grid-template-columns:1fr 1fr }
-  .items-grid-2{ grid-template-columns:1fr 1fr }
-
-  /* buttons */
-  .btn-calc{ font-size:.88rem;padding:12px }
-  .v6-btn{ padding:9px 16px;font-size:.83rem }
-
-  /* modal colors grid */
-  div[style*="grid-template-columns:1fr 1fr 1fr"]{ 
-    display:grid!important;
-    grid-template-columns:1fr 1fr!important 
+  body {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: unset !important;
+    grid-template-rows: unset !important;
+    width: 100%;
+    overflow-x: hidden;
   }
 
-  /* nav buttons */
-  .v6-btn-prev span, .v6-stepinfo{ display:none }
+  /* Sidebar oculta por padrão — aparece como drawer */
+  .neuro-sidebar {
+    display: none !important;
+    position: fixed !important;
+    top: 0 !important; left: 0 !important; bottom: 0 !important;
+    width: 260px !important;
+    height: 100vh !important;
+    min-height: unset !important;
+    z-index: 500 !important;
+    overflow-y: auto !important;
+    flex-direction: column !important;
+  }
+  .neuro-sidebar.sb-open {
+    display: flex !important;
+  }
 
-  /* report export buttons */
-  .btn-print,.btn-export-pdf,.btn-export-docx{
-    display:block;margin:8px 0!important;width:100%
+  /* Hamburger visível */
+  .sb-hamburger { display: flex !important; }
+
+  /* Topbar sem grid-column */
+  .v6-steps {
+    grid-column: unset !important;
+    position: sticky; top: 0;
+    width: 100%; max-width: 100%;
+    box-sizing: border-box;
+  }
+  .v6-steps-inner { padding: 10px 14px; gap: 7px; }
+  .v6-phases { gap: 4px; flex-wrap: nowrap; overflow-x: auto; }
+  .v6-phase .lbl { display: none; }
+  .v6-phase { padding: 5px 10px; }
+  .v6-progress { display: none; }
+
+  /* Conteúdo principal sem grid-column */
+  .main {
+    grid-column: unset !important;
+    width: 100%; max-width: 100%;
+    padding: 16px 14px;
+    box-sizing: border-box;
+  }
+
+  .header { display: none !important; }
+
+  /* Rodapé de navegação */
+  .v6-nav { margin: 20px -14px 0; }
+  .v6-nav-inner { padding: 10px 14px; }
+
+  /* Toast centralizado (sem sidebar) */
+  .v6-toast { left: 50% !important; }
+
+  /* Grids */
+  .patient-grid    { grid-template-columns: 1fr; }
+  .informant-fields{ grid-template-columns: 1fr; }
+  .color-grid      { grid-template-columns: 1fr; }
+  .items-grid-3    { grid-template-columns: 1fr 1fr; }
+  .items-grid-2    { grid-template-columns: 1fr; }
+
+  /* Tabelas */
+  .input-table input[type=number],
+  .input-table input[type=text] { width: 100% !important; min-width: 50px; }
+  .input-table { font-size: .83rem; }
+  .results-section { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .result-table { min-width: 520px; }
+  .test-body { overflow-x: auto; }
+
+  .card { padding: 18px 14px; }
+  .v6-tests { padding-bottom: 2px; }
+  .v6-tchip { font-size: .58rem; padding: 4px 10px; }
+
+  .modal     { width: 96% !important; max-width: 96% !important; margin: 8px; }
+  .val-modal { width: 96% !important; max-width: 96% !important; padding: 22px 18px; }
+}
+
+/* ── Mobile pequeno (≤480px) ──────────────────────────── */
+@media (max-width: 480px) {
+  .v6-steps-inner { padding: 8px 10px; }
+  .main            { padding: 12px 10px; }
+  .v6-nav-inner    { padding: 10px 10px; }
+  .v6-nav          { margin: 16px -10px 0; }
+  .card            { padding: 14px 10px; }
+
+  .v6-step-title { flex-direction: column; align-items: flex-start; gap: 8px; margin: 14px 0 12px; }
+  .v6-step-title h2 { font-size: 1.1rem; }
+
+  .v6-tchip { font-size: .54rem; padding: 4px 8px; }
+  .v6-phase { padding: 5px 8px; font-size: .7rem; }
+  .v6-phase-sep { min-width: 4px; max-width: 10px; }
+
+  .input-table th { font-size: .52rem; padding: 7px 8px; }
+  .input-table td { padding: 7px 8px; }
+  .result-table   { min-width: 480px; }
+  .result-table th{ font-size: .52rem; padding: 7px 10px; }
+  .result-table td{ padding: 8px 10px; font-size: .82rem; }
+
+  .items-grid-3 { grid-template-columns: 1fr 1fr; }
+  .items-grid-2 { grid-template-columns: 1fr 1fr; }
+
+  .btn-calc { font-size: .88rem; padding: 12px; }
+  .v6-btn   { padding: 9px 16px; font-size: .83rem; }
+
+  div[style*="grid-template-columns:1fr 1fr 1fr"] {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .v6-btn-prev span, .v6-stepinfo { display: none; }
+
+  .btn-print, .btn-export-pdf, .btn-export-docx {
+    display: block; margin: 8px 0 !important; width: 100%;
   }
 }
 
@@ -2056,7 +2041,32 @@ function exportDOCX(){
     +'body{font-family:Calibri,Arial,sans-serif;font-size:11pt;color:#1a1a1a;margin:2cm}h1{font-size:18pt;color:#2d5a3d;border-bottom:2pt solid #2d5a3d;padding-bottom:4pt;margin-bottom:6pt}h2{font-size:13pt;color:#2d5a3d;border-bottom:1pt solid #c8a96e;padding-bottom:3pt;margin-top:18pt;margin-bottom:8pt;text-transform:uppercase;letter-spacing:1pt}p.meta{font-size:10pt;color:#6b6560;margin-bottom:16pt}table{border-collapse:collapse;width:100%;margin-bottom:10pt;font-size:9.5pt}th{background:#eee9e2;color:#6b6560;text-align:left;padding:5pt 8pt;border:1pt solid #ddd8d0;font-size:8pt;text-transform:uppercase;letter-spacing:0.5pt}td{padding:5pt 8pt;border:1pt solid #eee9e2;vertical-align:top}tr:nth-child(even) td{background:#faf8f5}</style></head><body>'
     +'<h1>Relatório de Avaliação Neuropsicológica</h1><p class="meta"><strong>Paciente:</strong> '+nome+' &nbsp;&nbsp; <strong>Nascimento:</strong> '+nascFmt+' &nbsp;&nbsp; <strong>Idade:</strong> '+idade+' &nbsp;&nbsp; <strong>Data da Avaliação:</strong> '+dataFmt+'</p>';
   TEST_ORDER.forEach(key=>{ const res=window._RESULTS[key]; if(!res)return; body+='<h2>'+res.name+'</h2>'; if(res.informant&&(res.informant.nome||res.informant.rel)) body+='<p><strong>Informante:</strong> '+(res.informant.nome||'—')+(res.informant.rel?' — '+res.informant.rel:'')+'</p>'; body+=blocksToHTML(res); if(res.texts&&res.texts.length){ const d=document.createElement('div'); d.innerHTML=res.texts.join(''); body+='<p>'+(d.innerText||d.textContent)+'</p>'; } });
-  body+='</body></html>';
+  body+='
+<script>
+(function(){
+  window.toggleSidebar = function(){
+    var sb = document.getElementById('neuro-sidebar');
+    var ov = document.getElementById('sb-overlay');
+    if (!sb) return;
+    var opening = !sb.classList.contains('sb-open');
+    sb.classList.toggle('sb-open', opening);
+    if (ov) ov.classList.toggle('open', opening);
+    document.body.style.overflow = opening ? 'hidden' : '';
+  };
+  window.closeSidebar = function(){
+    var sb = document.getElementById('neuro-sidebar');
+    var ov = document.getElementById('sb-overlay');
+    if (sb) sb.classList.remove('sb-open');
+    if (ov) ov.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+  // Fechar com ESC
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') window.closeSidebar();
+  });
+})();
+</script>
+</body></html>';
   const blob=new Blob(['﻿'+body],{type:'application/msword'}); const url=URL.createObjectURL(blob);
   const a=document.createElement('a'); a.href=url; a.download='Relatorio_'+nome.replace(/\s+/g,'_')+'.doc'; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
 }
@@ -2115,7 +2125,7 @@ function buildChrome(){
   var st=document.createElement('div');st.className='v6-steps';
   st.innerHTML='<div class="v6-steps-inner">'+
     '<div class="v6-phases">'+
-    '<button class="sb-hamburger" id="sb-hamburger-btn" onclick="toggleSidebar()" title="Menu">☰</button>'+
+    '<button class="sb-hamburger" id="sb-hamburger-btn" onclick="toggleSidebar()" aria-label="Menu">&#9776;</button>'+
       '<div class="v6-phase" data-ph="0"><span class="n">1</span><span class="lbl">Paciente</span></div>'+
       '<span class="v6-phase-sep"></span>'+
       '<div class="v6-phase" data-ph="1"><span class="n">2</span><span class="lbl">Avaliação</span></div>'+
@@ -2277,7 +2287,7 @@ else init();
       var tag = document.createElement('span'); tag.className = 'sb-nav-tag';
       tag.textContent = chip.textContent.replace(/^\s*/, '').trim();
       btn.appendChild(dot); btn.appendChild(tag);
-      btn.addEventListener('click', function(){ chip.click(); window.closeSidebar && window.closeSidebar(); });
+      btn.addEventListener('click', function(){ chip.click(); if(window.innerWidth<=900) window.closeSidebar && window.closeSidebar(); });
       list.appendChild(btn);
     });
   }
@@ -2352,23 +2362,6 @@ else init();
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', onReady);
   else onReady();
 })();
-
-// Mobile sidebar toggle
-window.toggleSidebar = function(){
-  var sb = document.getElementById('neuro-sidebar');
-  var ov = document.getElementById('sb-overlay');
-  if(!sb) return;
-  var open = sb.classList.toggle('sb-open');
-  if(ov) ov.classList.toggle('open', open);
-  document.body.style.overflow = open ? 'hidden' : '';
-};
-window.closeSidebar = function(){
-  var sb = document.getElementById('neuro-sidebar');
-  var ov = document.getElementById('sb-overlay');
-  if(sb) sb.classList.remove('sb-open');
-  if(ov) ov.classList.remove('open');
-  document.body.style.overflow = '';
-};
 </script>
 </body>
 </html>
